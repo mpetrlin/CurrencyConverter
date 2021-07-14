@@ -1,6 +1,37 @@
-<h1>{{title}}</h1>
-<ul>
-  <li *ngFor="let rate of rates">
-    {{rate.id}} - {{rate.timestamp}} - {{rate.name}} - {{rate.rate}}
-  </li>
-</ul>
+<h1 class="text-center text-light mt-5">{{title}}</h1>
+
+<p class="p-2"></p>
+
+<div class="container">
+  <form class="form-inline mt-2 mt-md-0 justify-content-center" (ngSubmit)="calculate()" 
+              autocomplete="off">
+            <input 
+              name="amount"
+              [(ngModel)]="inputAmount"
+              class="form-control" 
+              type="number" min="0"
+              placeholder="Amount">
+            <select name="FromCurrency" style="width: 200px" [(ngModel)]="fromCurrency" class="form-control ml-2">
+                <option *ngFor="let rate of rates | keyvalue" [value]="rate.key" class="text-dark">
+                    {{rate.key.toUpperCase()}}
+                </option>
+            </select>
+            <select name="ToCurrency" style="width: 200px" [(ngModel)]="toCurrency" class="form-control ml-2">
+                <option *ngFor="let rate of rates | keyvalue" [value]="rate.key" class="text-dark">
+                    {{rate.key.toUpperCase()}}
+                </option>
+          </select>
+            <button class="btn btn-outline-light ml-4" type="submit">Convert</button>
+            <button class="btn btn-warning ml-4" (click)="openUpdateModal()" data-bs-toggle="modal"
+               data-bs-target="#exampleModal" type="button">Update conversion rates database</button>
+  </form>
+</div>
+
+<h2 *ngIf="calculatedAmount" class="text-center text-warning mt-5">
+  {{amount}} {{fromCurrency.toUpperCase()}}  is  {{roundedAmount}} {{toCurrency.toUpperCase()}}
+   - based on rates database from {{timestamp*1000 | date:'longDate'}}
+</h2>
+
+<p class="p-4"></p>
+
+<app-available-currencies></app-available-currencies>

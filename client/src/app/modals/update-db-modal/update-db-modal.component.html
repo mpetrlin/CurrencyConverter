@@ -1,0 +1,19 @@
+<div style="color: white;">
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Update local database</h4>
+    <button type="button" class="close pull-right" style="color: white;" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Current conversion rates database is from <b>{{timestamp*1000 | date:'longDate'}}</b> and is <b>{{daysOld}}</b> days old
+    <br> <br>
+    If you press update button, app will try to fetch the latest rates from <u>openexchangerates.org</u> API and overwrite the existing ones in the database. 
+    <br> <br>
+    If the process was not succesfull, existing data in the database will remain unchanged.
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-light" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-warning" (click)="updateThanDelete()">Update</button>
+  </div>
+</div>

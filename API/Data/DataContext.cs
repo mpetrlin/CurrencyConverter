@@ -9,6 +9,6 @@ namespace API.Data
         {
         }
 
-        public DbSet<Currency> Rates { get; set; }
+        public DbSet<Rates> Rates { get; set; }
     }
 }
