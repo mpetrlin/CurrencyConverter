@@ -10,7 +10,9 @@
     <br> <br>
     If you press update button, app will try to fetch the latest rates from <u>openexchangerates.org</u> API and overwrite the existing ones in the database. 
     <br> <br>
-    If the process was not succesfull, existing data in the database will remain unchanged.
+    If the process was not succesfull, existing data in the database will remain unchanged. <br>
+    This window will automatically close in case of a successful update.
+    <b style="color: rgb(255, 0, 0);"> <br> {{updateError}} </b>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-light" (click)="bsModalRef.hide()">Cancel</button>

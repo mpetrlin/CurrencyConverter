@@ -29,7 +29,7 @@ namespace API.Controllers
             return await _context.Rates.OrderByDescending(x => x.Id).FirstOrDefaultAsync();
         }
         
-        [HttpGet("getallrates")]
+        [HttpGet("getallrates")] // for API/DB testing only
         public async Task<ActionResult<IEnumerable<Rates>>> GetAllRatesFromLocalDB()
         {
             return await _context.Rates.ToListAsync();
@@ -48,7 +48,9 @@ namespace API.Controllers
 
             await _context.SaveChangesAsync();
 
-            return Ok(rates);
+            if (rates != null) return Ok(rates);
+
+            return BadRequest();
         }
 
         [HttpGet("deleteold")]
