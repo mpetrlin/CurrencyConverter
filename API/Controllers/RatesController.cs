@@ -56,10 +56,15 @@ namespace API.Controllers
         [HttpGet("deleteold")]
         public async Task<ActionResult<Rates>> DeleteDataInDatabase()
         {
+            if (_context.Rates.Count() > 1)
+            {           
             _context.Rates.RemoveRange(_context.Rates.First());
             await _context.SaveChangesAsync();
 
             return Ok();
+            }
+
+            return BadRequest();
         }
     }
 }
