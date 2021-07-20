@@ -1,6 +1,6 @@
 https://currencyconverter-peta.herokuapp.com/ is my 1st web app ever, that is completely coded by myself. 
 
-However, it is still a work in progress with a lot of room for improvement.
+However, it is still work in progress with a lot of room for improvement.
 
 Conversion rates are being fetched from an API available on https://openexchangerates.org/
 
