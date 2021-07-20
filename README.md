@@ -1,4 +1,4 @@
-https://currencyconverter-peta.herokuapp.com/ is my 1st web app ever, coded completely by myself. 
+https://currencyconverter-peta.herokuapp.com/ is my 1st web app ever, that is completely coded by myself. 
 
 However, it is still a work in progress with a lot of room for improvement.
 
