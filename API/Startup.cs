@@ -67,6 +67,7 @@ namespace API
                     // or from the environment variable from Heroku, use it to set up your DbContext.
                     options.UseNpgsql(connStr);
             });
+            
             services.AddControllers();
             services.AddCors();
             services.AddScoped<IFetchLatestFromAPI, FetchLatestFromAPI>();
